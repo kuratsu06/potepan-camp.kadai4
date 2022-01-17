@@ -7,25 +7,28 @@ memo_type = gets.chomp
 if memo_type == "1"
   puts "拡張子を除いたファイルを入力してください"
   
-  memo_type = gets.to_s
+  file_name = gets.chomp
   
-  CSV.open("test.csv", "w") do |test|
-
+  CSV.open("#{file_name}.csv", "w") do |csv|
+    
   p "メモしたい内容を記入してください"
   p "完了したらctrl + Dをおします"
   
   content = readlines
-  test << content
+  csv << content
 end
 
 elsif memo_type == "2"
+  puts "拡張子を除いたファイルを入力してください"
   
-  CSV.open("test.csv", "a") do |test|
+  file_name = gets.chomp
+  
+  CSV.open("#{file_name}.csv", "a") do |csv|
   
   p "編集したい内容を記入してください"
   p "完了したらctrl + Dをおします"
   
   content = readlines
-  test << content
+  csv << content
   end
 end
